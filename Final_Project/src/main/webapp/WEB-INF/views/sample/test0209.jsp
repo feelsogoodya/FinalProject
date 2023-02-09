@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>테스트</h1>
+<h1>테스트0209</h1>
 	<h2>test file for checking DB connection</h2>
 	<form action="${pageContext.request.contextPath }/sample/testPro" method="post">
 		아이디 : <input type="text" name="id"><br>
