@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +7,9 @@
 </head>
 <body>
 <h1>구매내역</h1>
-<%-- <c:if test="${ empty sessionScope.id }"> --%>
-<%-- 	<c:redirect url="/member/login"/> --%>
-<%-- </c:if> --%>
+<c:if test="${ empty sessionScope.id }">
+	<c:redirect url="/member/login"/>
+</c:if>
 
 	<div class="sell-list">
 		<div class="sell-list-condition">

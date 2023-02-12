@@ -10,9 +10,9 @@
 			<form name="myform" id="myform" method="post" action="insert" enctype="multipart/form-data">
 		<div class="modal-content">
 		
-	<input type="hidden" name="seller" value="${seller}" id="seller">
-	<input type="hidden" name="buyer" value="${id}" id="buyer">
-		<div class="modal-title"><b>${nickname}</b>님과의 거래후기는?</div>
+<%-- 	<input type="hidden" name="seller" value="${seller}" id="seller"> --%>
+<%-- 	<input type="hidden" name="buyer" value="${id}" id="buyer"> --%>
+		<div class="modal-title"><b>{nickname}</b>님과의 거래후기는?</div>
 		
 			<div class="my-rating"></div>
 			
@@ -45,7 +45,7 @@
 <form name="myform" id="myform" method="post" action="insert" enctype="multipart/form-data">
 	<input type="hidden" name="seller" value="${seller}" id="seller">
 	<input type="hidden" name="buyer" value="${id}" id="buyer">
-		<div class="modal-title"><b>${nickname}</b>님과의 거래후기는?</div>
+		<div class="modal-title"><b>{nickname}</b>님과의 거래후기는?</div>
 		<div class="modal-content">
 			<div class="my-rating"></div>
 			
