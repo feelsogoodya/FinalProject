@@ -6,17 +6,17 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.itwillbs.dao.SellDAO;
+import com.itwillbs.dao.SellListDAO;
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.SellDTO;
+import com.itwillbs.domain.SellListDTO;
 
 @Service
-public class sellServiceImpl implements SellService {
+public class SellListServiceImpl implements SellListService {
 	@Inject
-	private SellDAO sellDAO;
+	private SellListDAO sellListDAO;
 
 	@Override
-	public List<SellDTO> getSellList(PageDTO dto) {
+	public List<SellListDTO> getSellList(PageDTO dto) {
 	
 		// startRow 구하기
 				int startRow=(dto.getCurrentPage()-1)*dto.getPageSize()+1;
@@ -27,13 +27,13 @@ public class sellServiceImpl implements SellService {
 				dto.setStartRow(startRow-1);
 				dto.setEndRow(endRow);
 				
-				return sellDAO.getSellList(dto);
+				return sellListDAO.getSellList(dto);
 	}
 
 	@Override
 	public int getSellCount() {
 
-		return sellDAO.getSellCount();
+		return sellListDAO.getSellCount();
 	}
 	
 

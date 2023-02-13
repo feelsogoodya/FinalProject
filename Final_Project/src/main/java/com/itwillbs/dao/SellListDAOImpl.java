@@ -8,19 +8,19 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.SellDTO;
+import com.itwillbs.domain.SellListDTO;
 
 @Repository
-public class SellDAOImpl implements SellDAO {
+public class SellListDAOImpl implements SellListDAO {
 	// 마이바티스 자동 객체생성
 	@Inject
 	private SqlSession sqlSession;
-	private static final String namespace = "com.itwillbs.mappers.sellMapper";
+	private static final String namespace = "com.itwillbs.mappers.selllistMapper";
 	
 	
 
 	@Override
-	public List<SellDTO> getSellList(PageDTO dto) {
+	public List<SellListDTO> getSellList(PageDTO dto) {
 
 		return sqlSession.selectList(namespace + ".getSellList", dto);
 	}//

@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>판매내역</h1>
+
 <input type="hidden" name="id" value="${dto.sellmemId}">
 <a href="${pageContext.request.contextPath }/">메인페이지</a><br>
 <a href="${pageContext.request.contextPath }/sell/판매페이지">판매하기</a><br>
@@ -32,15 +33,15 @@
 
 
 <c:if test="${pageDto.startPage > pageDto.pageBlock }">
-<a href="${pageContext.request.contextPath }/board/list?pageNum=${pageDto.startPage - pageDto.pageBlock}">[10페이지 이전] </a>
+<a href="${pageContext.request.contextPath }/list/selllist?pageNum=${pageDto.startPage - pageDto.pageBlock}">[10페이지 이전] </a>
 </c:if>
  
 <c:forEach var="i" begin="${pageDto.startPage }" end="${pageDto.endPage }" step="1">
-<a href="${pageContext.request.contextPath }/board/list?pageNum=${i}">${i}</a> 
+<a href="${pageContext.request.contextPath }/list/selllist?pageNum=${i}">${i}</a> 
 </c:forEach>
 
 <c:if test="${pageDto.endPage < pageDto.pageCount}">
-<a href="${pageContext.request.contextPath }/board/list?pageNum=${pageDto.startPage + pageDto.pageBlock}">[10페이지 다음] </a>
+<a href="${pageContext.request.contextPath }/list/selllist?pageNum=${pageDto.startPage + pageDto.pageBlock}">[10페이지 다음] </a>
 </c:if>
 
 </body>

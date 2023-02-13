@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.SellDTO;
-import com.itwillbs.service.SellService;
+import com.itwillbs.domain.SellListDTO;
+import com.itwillbs.service.SellListService;
 
 @Controller
-public class SellController {
+public class SellListController {
 	
 	
 	@Inject
-	private SellService sellService;
+	private SellListService sellListService;
 
 	@RequestMapping(value = "/selllist/selllist", 
 			method = RequestMethod.GET)
@@ -46,12 +46,12 @@ public class SellController {
 		// 디비작업 메서드 호출
 		// List<BoardDTO> 리턴할형 getBoardList(PageDTO dto) 메서드 정의
 		// List<BoardDTO> boardList =dao.getBoardList(dto);
-		List<SellDTO> sellList= sellService.getSellList(dto);
+		List<SellListDTO> sellList= sellListService.getSellList(dto);
 		
 		//페이징 작업
 		// 전체 게시판 글의 개수 가져오기
 		// select count(*) from board  
-		int count=sellService.getSellCount();
+		int count=sellListService.getSellCount();
 		int pageBlock=10; 
 		int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 		int endPage=startPage+pageBlock-1;
@@ -70,7 +70,7 @@ public class SellController {
 		model.addAttribute("pageDto", dto);
 		
 		// 기본 이동방식 : 주소변경 없이 이동 
-		return "selllist/selllist";
+		return "list/selllist";
 	}//
 	
 

@@ -1,7 +1,7 @@
 package com.itwillbs.domain;
 
 
-public class SellDTO {
+public class SellListDTO {
 
 	private int sellNum;
 	private String sellmemId;
