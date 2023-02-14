@@ -5,8 +5,8 @@
 <mapper namespace="com.itwillbs.mappers.memberMapper">
 	
 	 <select id="userCheck" resultType="MemberDTO">
-		select mem_id, mem_pass
+		select member_id, member_pass
 		from members
-		where mem_id=#{memId} and mem_pass=#{memPass}
+		where member_id=#{memberId} and member_pass=#{memberPass}
 	</select>
 </mapper>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.BuyListDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.service.BuyListService;
+import com.itwillbs.service.MemberService;
 
 @Controller
 public class BuyListController {
@@ -20,6 +23,9 @@ public class BuyListController {
 	
 	@Inject
 	private BuyListService buyListService;
+
+	
+	
 
 	@RequestMapping(value = "/list/buylist", 
 			method = RequestMethod.GET)
@@ -37,16 +43,16 @@ public class BuyListController {
 		// pageNum => 정수형 currentPage
 		int currentPage=Integer.parseInt(pageNum);
 		// PageDTO 객체생성
-		PageDTO dto=new PageDTO();
+		PageDTO pageDTO=new PageDTO();
 		// set 메서드 호출
-		dto.setPageSize(pageSize);
-		dto.setPageNum(pageNum);
-		dto.setCurrentPage(currentPage);
+		pageDTO.setPageSize(pageSize);
+		pageDTO.setPageNum(pageNum);
+		pageDTO.setCurrentPage(currentPage);
 		
 		// 디비작업 메서드 호출
 		// List<BoardDTO> 리턴할형 getBoardList(PageDTO dto) 메서드 정의
 		// List<BoardDTO> boardList =dao.getBoardList(dto);
-		List<BuyListDTO> buyList= buyListService.getbuyList(dto);
+		List<BuyListDTO> buyList= buyListService.getbuyList(pageDTO);
 		
 		//페이징 작업
 		// 전체 게시판 글의 개수 가져오기
@@ -59,15 +65,15 @@ public class BuyListController {
 		if(endPage > pageCount){
 	 	   endPage=pageCount;
 	    }
-		dto.setCount(count);
-		dto.setPageBlock(pageBlock);
-		dto.setStartPage(startPage);
-		dto.setEndPage(endPage);
-		dto.setPageCount(pageCount);
+		pageDTO.setCount(count);
+		pageDTO.setPageBlock(pageBlock);
+		pageDTO.setStartPage(startPage);
+		pageDTO.setEndPage(endPage);
+		pageDTO.setPageCount(pageCount);
 		
 		// model 담아서 이동
 		model.addAttribute("buyList", buyList);
-		model.addAttribute("pageDto", dto);
+		model.addAttribute("pageDto",pageDTO);
 		
 		// 기본 이동방식 : 주소변경 없이 이동 
 		return "list/buylist";

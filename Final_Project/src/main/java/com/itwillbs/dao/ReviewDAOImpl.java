@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.ReviewDTO;
 
 @Repository
-public class ReviewImpl implements ReviewDAO {
+public class ReviewDAOImpl implements ReviewDAO {
 	// 마이바티스 자동 객체생성
 	@Inject
 	private SqlSession sqlSession;

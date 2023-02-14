@@ -15,8 +15,8 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberDTO userCheck(MemberDTO memberDTO) {
 		 MemberDTO dto = memberDAO.userCheck(memberDTO);
-		 System.out.println("service "+dto.getMemId());
-		 System.out.println("service "+dto.getMemPass());
+		 System.out.println("service "+dto.getMemberId());
+		 System.out.println("service "+dto.getMemberPass());
 		return dto;
 	}
 

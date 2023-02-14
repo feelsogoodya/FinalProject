@@ -25,19 +25,19 @@ public class MemberController {
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
 	public String loginPro(MemberDTO memberDTO, HttpSession session) {
 		
-		System.out.println("입력"+memberDTO.getMemId());
-		System.out.println("입력"+memberDTO.getMemPass());
+		System.out.println("입력"+memberDTO.getMemberId());
+		System.out.println("입력"+memberDTO.getMemberPass());
 		
-		MemberDTO selmemberDTO = memberService.userCheck(memberDTO);
+		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		
-		System.out.println("가져온 DTO"+ selmemberDTO.getMemId());
-		System.out.println("가져온 DTO"+ selmemberDTO.getMemPass());
+		System.out.println("가져온 DTO"+ memberDTO.getMemberId());
+		System.out.println("가져온 DTO"+ memberDTO.getMemberPass());
 		
-		if(selmemberDTO == null) {
+		if(memberDTO2 == null) {
 			return "redirect:/member/login";
 		}
 		
-		session.setAttribute("memId", memberDTO.getMemId());
+		session.setAttribute("memberId", memberDTO.getMemberId());
 		return "redirect:/main/main";
 	}
 }

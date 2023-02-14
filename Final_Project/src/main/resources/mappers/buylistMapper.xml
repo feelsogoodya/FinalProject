@@ -4,10 +4,15 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwillbs.mappers.buylistMapper">
 
+<!-- 	<insert id="insertBuyList"> -->
+<!-- 	insert into buylist(buymem_id, prod_name, prod_pic, prod_price, buy_date ) -->
+<!-- 	values (#{member_id}, #{product_name},#{product_pic},#{product_price},#{buy_date}) -->
+<!-- 	</insert> -->
+
 
 	<select id="getBuyList"
 		resultType="com.itwillbs.domain.BuyListDTO">
-		select * from buylist where buymem_id= 'bb'
+		select * from buylist where buymem_id='bb'
 		order by buy_date desc
 	</select>
 

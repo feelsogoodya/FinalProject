@@ -18,8 +18,8 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public MemberDTO userCheck(MemberDTO memberDTO) {
 		MemberDTO dto = sqlSession.selectOne(namespace+".userCheck", memberDTO);
-		System.out.println("dao "+dto.getMemId());
-		 System.out.println("dao "+dto.getMemPass());
+		System.out.println("dao "+dto.getMemberId());
+		 System.out.println("dao "+dto.getMemberPass());
 		return dto;
 	}
 
