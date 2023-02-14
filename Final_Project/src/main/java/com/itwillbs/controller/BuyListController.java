@@ -25,6 +25,14 @@ public class BuyListController {
 	private BuyListService buyListService;
 
 	
+	@RequestMapping(value = "/list/buyend", method = RequestMethod.GET)
+	public String buyend() {
+		// 기본 이동방식 : 주소변경 없이 이동
+		return "list/buyend";
+	}
+	
+	
+	
 	
 
 	@RequestMapping(value = "/list/buylist", 

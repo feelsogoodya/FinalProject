@@ -26,7 +26,7 @@ public class SellListController {
 
 
 
-	@RequestMapping(value = "/selllist/selllist", 
+	@RequestMapping(value = "/list/selllist", 
 			method = RequestMethod.GET)
 	public String list(Model model, HttpServletRequest request) {
 		// http://localhost:8080/myweb/board/list

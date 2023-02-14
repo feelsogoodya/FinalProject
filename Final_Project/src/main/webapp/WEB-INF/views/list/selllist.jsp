@@ -6,14 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>selllist/selllist.jsp</title>
+<style type="text/css">
+table {
+width: 100%;
+border-top: 1px solid #444444;
+border-collapse: collapse;
+}
+
+th,td{
+border-bottom: 1px solid #444444;
+padding: 30px;
+}
+
+
+</style>
 </head>
+
+
 <body>
 <h1>판매내역</h1>
 
 <input type="hidden" name="id" value="${dto.sellmemId}">
 <a href="${pageContext.request.contextPath }/">메인페이지</a><br>
 <a href="${pageContext.request.contextPath }/sell/판매페이지">판매하기</a><br>
-<table border="1">
+<table>
 <tr><td>등록일</td><td>이미지</td><td>상품명</td>
 <td>금액</td><td>상태</td></tr>
 <c:forEach var="dto" items="${sellList }">

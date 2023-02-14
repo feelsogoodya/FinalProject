@@ -8,7 +8,7 @@
 	<div class="modal">
 
 		<div class="modal-title">${memberId}님과의거래후기를 남겨주세요</div>
-		<form name="myform" id="myform" method="post" action="${pageContext.request.contextPath }/review/insertReview" >
+		<form name="myform" id="review" method="post" action="${pageContext.request.contextPath }/review/insertReview" >
 			<div class="modal-content">
 
 				<input type="hidden" name="reviewee" value="판매자 DTO" id="reviewee">
@@ -33,19 +33,22 @@
 
 
 	<button type="submit" value="등록" class="btn">등록</button>
-	<button type="button" class="modal-close">취소</button>
+	<button type="button" class="modal-close" onclick="javascript:window.close()">취소</button>
 	
 </form>
 </div>
 </div>
 
 
-<script type="text/javascript" src="${pageContext.request.contextPath }/resources/script/jquery-3.6.3.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/jquery-3.6.3.js"></script>
 <script type="text/javascript">
 
-window.open(
-		"review","거래후기","width=500,height=500,top=100,left=100"
-		)
+$(document).ready(function() {
+	$('#review').submit(function() {
+		window.close();
+// 		alert('메세지');
+	});
+});
 
 </script>
 

@@ -6,35 +6,47 @@
 <head>
 <meta charset="UTF-8">
 <title>list/buylist.jsp</title>
+<style type="text/css">
+table {
+width: 100%;
+border-top: 1px solid #444444;
+border-collapse: collapse;
+}
+
+th,td{
+border-bottom: 1px solid #444444;
+padding: 30px
+}
+
+
+</style>
 </head>
 <body>
 <h1>구매내역</h1>
 
+
 <input type="hidden" name="id" value="${dto.sellmemId}">
 <a href="${pageContext.request.contextPath }/">메인페이지</a><br>
-<a href="${pageContext.request.contextPath }/buy/구매페이지">구매하기</a><br>
+<a href="${pageContext.request.contextPath }/sell/판매페이지">판매하기</a><br>
 
 
-				<div class="mybuying-list">
-					<table class="table">
-						<thead>
-							<tr>
-								<th class="prodPic">상품이미지</th>
-								<th class="prodPrice">가격</th>
-							</tr>
-						</thead>
-						<tbody class="buy-list-tbody" id="buy-list-tbody">
-						</tbody>
-						
-						<thead>
-							<tr>
-								<th class="prodPic">${dto.prodPic}</th>
-								<th class="prodPrice">${dto.prodPrice }</th>
-							</tr>
-						</thead>
-						<tbody class="buy-list-tbody" id="buy-list-tbody">
-						</tbody>
-					</table>
+<table>
+<tr><td>구매일</td><td>이미지</td><td>상품명</td>
+<td>금액</td><td></td>
+
+<c:forEach var="dto" items="${buyList}">
+<tr>
+	<td>${dto.buyDate}</td>
+	<td>${dto.prodPic}</td>
+	    <td>
+    <a href="${pageContext.request.contextPath }/selllist/prodName?num=${dto.buyNum}">
+    ${dto.prodName}</a>
+    </td>
+	<td>${dto.prodPrice} 원</td>
+	<td><input type="button" value="거래후기 작성" class="goreview"onclick="openPop()"> </td>
+</c:forEach>
+</table>
+<br>
 					
 					<!-- 페이징 넣기 -->
 <c:if test="${pageDto.startPage > pageDto.pageBlock }">
@@ -49,61 +61,26 @@
 <a href="${pageContext.request.contextPath }/list/buylist?pageNum=${pageDto.startPage + pageDto.pageBlock}">[10페이지 다음] </a>
 </c:if>
 					
-				</div>
-		</div>
-	</div>
 	
-</div>
 
 
 
 
 
+<script type="text/javascript">
+
+function  openPop() {
+	var goReviewpopup = window.open(
+		"${pageContext.request.contextPath}/review/review","거래후기","width=500,height=500,top=100,left=100");
+
+}
 
 
 
+</script>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div>
-<div id="buyinfo"></div>
-<fieldset>
-<td>구매일</td>
-<td>이미지</td>
-<td>상품명</td>
-<td>금액</td>
-<td>리뷰쓰기</td>
-
-<br>
-<c:forEach var="dto" items="${buyList}">
-
-	<td>${dto.buyDate}</td>
-	<td>${dto.prodPic}</td>
-	    <td>
-    <a href="${pageContext.request.contextPath }/buylist/prodName?num=${dto.buyNum}">
-    ${dto.prodName}</a>
-    </td>
-	<td>${dto.prodPrice} 원</td>
-	<td>
-	<a href="${pageContext.request.contextPath }/review/reviewForm"> 거래후기 작성
-	</td>
-</c:forEach>
-</fieldset>
-</div>
-<br>
 
 
 
