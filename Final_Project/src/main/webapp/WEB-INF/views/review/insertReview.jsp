@@ -72,7 +72,7 @@
 				<label for="termCheck">불친절해요</label><br>
 				<input type="checkbox" name="bad_check" value="정가보다 비싸게 팔아요"> 
 				<label for="termCheck">정가보다 비싸게 팔아요</label><br>
-			</div>
+			</div> 
 			<div class="sosoCk" style="display: none;">
 				<input type="checkbox" name="soso_check" value="답장이 빨라요">
 				 <label for="termCheck">답장이 빨라요</label><br>
