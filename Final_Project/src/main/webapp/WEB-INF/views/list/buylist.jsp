@@ -25,7 +25,8 @@ padding: 30px
 <h1>구매내역</h1>
 
 
-<input type="hidden" name="id" value="${dto.sellmemId}">
+<input type="hidden" name="sellmemId" value="">
+<input type="hidden" name="buymemId" value="${memberId}">
 <a href="${pageContext.request.contextPath }/">메인페이지</a><br>
 <a href="${pageContext.request.contextPath }/sell/판매페이지">판매하기</a><br>
 

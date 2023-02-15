@@ -35,6 +35,9 @@ public class ReviewController {
 	public String insertReview(ReviewDTO reviewDTO,HttpSession session, MemberDTO memberDTO) {
 		System.out.println("review 시작!!!!!!!!!!!!");
 		// insertBoard(boardDTO) 메서드 호출
+//		String reviewer = (String)session.getAttribute("memberID");
+//		System.out.println("가져온 ID: "+reviewer);
+
 		reviewService.insertReview(reviewDTO);
 		session.setAttribute("reviewer", memberDTO.getMemberId());
 		
