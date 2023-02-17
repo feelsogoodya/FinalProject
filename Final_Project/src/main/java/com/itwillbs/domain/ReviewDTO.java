@@ -7,7 +7,16 @@ public class ReviewDTO {
 	private String reviewer;
 	private int revScore;
 	private int revTotalscore;
+	private String revCategory;
+	public String getRevCategory() {
+		return revCategory;
+	}
+	public void setRevCategory(String revCategory) {
+		this.revCategory = revCategory;
+	}
 	private String revContent;
+
+	
 	public int getRevNum() {
 		return revNum;
 	}

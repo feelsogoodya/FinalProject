@@ -6,8 +6,8 @@
 
  
 	<insert id="insertReview">
-		insert into review(reviewer, rev_score)
-		values(#{reviewer},#{revScore})
+		insert into review(rev_content)
+		values(#{revContent})
 	</insert>
 
 <!-- 	<select id="updateScore" resultType="java.lang.Integer"> -->

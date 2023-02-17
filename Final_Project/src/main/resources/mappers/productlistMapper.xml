@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.mappers.productlistMapper">
+
+<!-- 	<insert id="insertBuyList"> -->
+<!-- 	insert into buylist(buymem_id, prod_name, prod_pic, prod_price, buy_date ) -->
+<!-- 	values (#{member_id}, #{product_name},#{product_pic},#{product_price},#{buy_date}) -->
+<!-- 	</insert> -->
+
+
+	<select id="getProductList"
+		resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where member_id = 'aa'
+	</select>
+	
+	<select id="getProductCount" resultType="java.lang.Integer">
+		select count(*) from product
+	</select>
+
+</mapper>

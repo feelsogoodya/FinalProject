@@ -5,6 +5,8 @@ public class ProductDTO {
 		private String productTitle;
 		private int productPrice;
 		private String productPic;
+		
+		
 		public String getMemberId() {
 			return memberId;
 		}

@@ -38,6 +38,6 @@ public class MemberController {
 		}
 		
 		session.setAttribute("memberId", memberDTO.getMemberId());
-		return "redirect:/main/main";
+		return "redirect:/list/buyend";
 	}
 }
