@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>list/buylist.jsp</title>
+<title>product/productlist.jsp</title>
 <style type="text/css">
 table {
 width: 100%;
@@ -23,7 +23,7 @@ padding: 30px
 </head>
 <body>
 <h1>판매상품</h1>
-
+<form action="${pageContext.request.contextPath }/product/product">
 
 <input type="hidden" name="sellmemId" value="">
 <input type="hidden" name="buymemId" value="${memberId}">
@@ -32,33 +32,33 @@ padding: 30px
 
 
 <table>
-<tr><td>아이디</td><td>이미지</td><td>상품명</td><td>가격</td>
-
+<tr><td>아이디</td>
+		<td>이미지</td>
+		<td>상품명</td>
+		<td>가격</td>
+		<td></td></tr>
 
 <c:forEach var="dto" items="${productList}">
-<tr>
-	<td>${dto.memberId}</td>
-	<td>${dto.prodPic}</td>
-	    <td>
-    <a href="${pageContext.request.contextPath }/selllist/prodName?num=${dto.buyNum}">
-    ${dto.prodName}</a>
-    </td>
-	<td>${dto.prodPrice} 원</td>
+<tr><td>${dto.memberId}</td>
+		<td>${dto.productPic}</td>
+	    <td>${productTitle}</td>
+	<td>${dto.productPrice} 원</td>
+	<td><input type="submit" value="주문" class="insertbuylist"> </td>
 </c:forEach>
 </table>
 <br>
 					
 					<!-- 페이징 넣기 -->
-<c:if test="${pageDto.startPage > pageDto.pageBlock }">
-<a href="${pageContext.request.contextPath }/list/buylist?pageNum=${pageDto.startPage - pageDto.pageBlock}">[10페이지 이전] </a>
+<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+<a href="${pageContext.request.contextPath }/product/productlist?pageNum=${pageDto.startPage - pageDto.pageBlock}">[10페이지 이전] </a>
 </c:if>
  
-<c:forEach var="i" begin="${pageDto.startPage }" end="${pageDto.endPage }" step="1">
-<a href="${pageContext.request.contextPath }/list/buylist?pageNum=${i}">${i}</a> 
+<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+<a href="${pageContext.request.contextPath }/product/productlist?pageNum=${i}">${i}</a> 
 </c:forEach>
 
-<c:if test="${pageDto.endPage < pageDto.pageCount}">
-<a href="${pageContext.request.contextPath }/list/buylist?pageNum=${pageDto.startPage + pageDto.pageBlock}">[10페이지 다음] </a>
+<c:if test="${pageDTO.endPage < pageDTO.pageCount}">
+<a href="${pageContext.request.contextPath }/product/productlist?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">[10페이지 다음] </a>
 </c:if>
 					
 	
@@ -68,9 +68,9 @@ padding: 30px
 
 
 
-
-
+</form>
 </body>
+
 </html>
 
 

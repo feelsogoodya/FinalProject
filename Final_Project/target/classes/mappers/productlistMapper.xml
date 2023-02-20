@@ -18,5 +18,10 @@
 	<select id="getProductCount" resultType="java.lang.Integer">
 		select count(*) from product
 	</select>
+	
+	<insert id="insertProduct" >
+	insert into buylist(bymem_id, prod_name, prod_price, prod_pic)
+	values(#{dto.memberID}, #{productTitle},#{dto.productPrice}, #{dto.productPic})
+	</insert>
 
 </mapper>

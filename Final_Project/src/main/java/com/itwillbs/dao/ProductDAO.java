@@ -10,4 +10,6 @@ public interface ProductDAO {
 	public List<ProductDTO> getProductList(PageDTO pageDTO);
 	public int getProductCount();
 	
+	public void insertProduct(ProductDTO productDTO);
+	
 }

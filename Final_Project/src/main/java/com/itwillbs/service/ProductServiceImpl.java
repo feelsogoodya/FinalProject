@@ -35,6 +35,13 @@ public class ProductServiceImpl implements ProductService{
 			return productDAO.getProductCount();
 	}
 
+
+	@Override
+	public void insertProduct(ProductDTO productDTO) {
+		productDAO.insertProduct(productDTO);
+		
+	}
+
 	
 	
 }

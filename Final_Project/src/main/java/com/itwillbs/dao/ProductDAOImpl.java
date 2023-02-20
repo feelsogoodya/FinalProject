@@ -26,5 +26,11 @@ public class ProductDAOImpl implements ProductDAO{
 	public int getProductCount() {
 		return sqlSession.selectOne(namespace+".getProductCount");
 	}
+
+	@Override
+	public void insertProduct(ProductDTO productDTO) {
+		sqlSession.insert(namespace + ".insertProduct");
+		
+	}
 	
 }

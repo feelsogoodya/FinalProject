@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.service.ProductService;
 
 @Controller
@@ -58,12 +60,23 @@ public class ProductController {
 		pageDTO.setPageCount(pageCount);
 		
 		System.out.println(pageDTO);
-		model.addAttribute("boardList", productList);
+		model.addAttribute("productList", productList);
 		model.addAttribute("pageDTO", pageDTO);
 		return "product/productlist";
 	}
 		
+	@RequestMapping(value = "/product/product", method = RequestMethod.POST)
+	public String insertReview(ProductDTO productDTO, HttpSession session, MemberDTO memberDTO ) {
+		System.out.println("review 시작!!!!!!!!!!!!");
+
 		
+		productService.insertProduct(productDTO);
+//		System.out.println("가져온 ID: "+reviewer);
+
+		session.setAttribute("reviewer", memberDTO.getMemberId());
+		// 기본 이동방식 : 주소변경 없이 이동
+		return "redirect:/list/buylist";
+	}	
 		
 		
 		

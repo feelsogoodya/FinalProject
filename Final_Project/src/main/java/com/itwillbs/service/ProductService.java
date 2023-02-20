@@ -11,5 +11,6 @@ public interface ProductService {
 	
 	public int getProductCount();
 	
+	public  void insertProduct(ProductDTO productDTO);
 	
 }

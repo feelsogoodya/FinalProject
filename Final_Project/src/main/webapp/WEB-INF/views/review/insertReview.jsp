@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,16 +17,36 @@
 }
 </style>
 
-<div class="popup-modal">
-	<div class="modal">
+<%
+  String[] checkboxValues = request.getParameterValues("revContent");
+  int score = 0;
+  String revContent = "";
 
-		<div class="modal-title">${memberId}님과의거래후기를남겨주세요!</div>
+  if (checkboxValues != null) { 
+    for (int i = 0; i < checkboxValues.length; i++) {
+   
+      score += Integer.parseInt(checkboxValues[i]);
+      revContent +=  "," + checkboxValues[i];
+    }
+    revContent = revContent.substring(0, revContent.length()-1); // 마지막 쉼표 제거
+
+  }
+  
+  %>
+
+
+
+		<div class="modal-title">${sessionScope.memberId}님과의거래후기를남겨주세요!</div>
 		<br>
-		<form action="${pageContext.request.contextPath }/review/insertReview"  id="insertReview" method="post">
+		<form action="${pageContext.request.contextPath }/review/insertReview"  
+		id="insertReview" method="post" onsubmit = "window.close()">
 			<div class="modal-content">
+			
 
-				<input type="hidden" name="reviewee" value="판매자 DTO" id="reviewee">
-				<input type="hidden" name="reviewer" value="${memberId}" id="reviewer">
+				<input type="hidden" name="reviewee" value="${sessionScope.memberId}" id="reviewee">
+				<input type="hidden" name="reviewer" value="${sessionScope.memberId}" id="reviewer">
+				<input type = "hidden" name = "revScore" value="<%=score%>" id="revScore">
+				<input type="hidden" name = "revContent" value = "<%= revContent%>" id="revContent">
 				<div class="modal-title"></div>
 
 				<div class="manner-rating"></div>
@@ -47,62 +68,77 @@
 			
 			<div name="contentCk">
 			<div class="badCk" style="display: none;">
+				<label for="termCheck">
 				<input type="checkbox" name="revContent" value="답장이 느려요" > 
-				<label for="termCheck">답장이 느려요</label><br>
+				답장이 느려요</label><br>
+				<label for="termCheck">
 				<input type="checkbox" name="revContent" value="상품이 말한 것과 달라요"> 
-				<label for="termCheck">상품이 말한 것과 달라요</label><br>
+				상품이 말한 것과 달라요</label><br>
+				<label for="termCheck">
 				<input type="checkbox" name="revContent" value="시간약속을 지키지 않아요"> 
-				<label for="termCheck">시간약속을 지키지 않아요</label><br>
+				시간약속을 지키지 않아요</label><br>
+				<label for="termCheck">
 				<input type="checkbox"name="revContent" value="약속장소에 나타나지 않았어요"> 
-				<label for="termCheck">약속장소에 나타나지 않았어요</label><br>
+				약속장소에 나타나지 않았어요</label><br>
+				<label for="termCheck">
 				<input type="checkbox" name="revContent" value="불친절해요"> 
-				<label for="termCheck">불친절해요</label><br>
+				불친절해요</label><br>
+				<label for="termCheck">
 				<input type="checkbox" name="revContent" value="정가보다 비싸게 팔 아요"> 
-				<label for="termCheck">정가보다 비싸게 팔아요</label><br>
+				정가보다 비싸게 팔아요</label><br>
 			</div> 
 			
 			<div class="sosoCk" style="display: none;">
-			<input type="checkbox" name="revContent" value="답장이 빨라요" > 
-				 <label for="termCheck">답장이 빨라요</label><br>
+				 <label for="termCheck">
+				<input type="checkbox" name="revContent" value="답장이 빨라요" > 
+				 답장이 빨라요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox" name="revContent" value="상품이 설명한 것과 같아요">
-				 <label for="termCheck">상품이 설명한 것과 같아요</label><br>
+				 상품이 설명한 것과 같아요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox" name="revContent" value="내가 있는 곳까지 와주셨어요">
-				 <label for="termCheck"> 내가 있는 곳까지 와주셨어요</label><br>
+				  내가 있는 곳까지 와주셨어요</label><br>
+				  <label for="termCheck">
 				 <input type="checkbox" name="revContent" value="약속시간을 잘지켜요">
-				 <label for="termCheck"> 약속시간을 잘지켜요</label><br>
+				 약속시간을 잘지켜요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox"name="revContent" value="친절하고 매너가 좋아요">
-				 <label for="termCheck">친절하고 매너가 좋아요</label><br>
+				 친절하고 매너가 좋아요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox" name="revContent" value="좋은 상품을 저렴하게 팔아요">
-				 <label for="termCheck">좋은 상품을 저렴하게 팔아요</label><br>
+				좋은 상품을 저렴하게 팔아요</label><br>
 			
 				 
 			</div>
 			<div class="goodCk" style="display: none;">
-			 <input type="checkbox"name="revContent" value="답장이 빨라요">
-				 <label for="termCheck">답장이 빨라요</label><br>
+				<label for="termCheck">
+			 	<input type="checkbox"name="revContent" value="답장이 빨라요">
+				 답장이 빨라요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox"name="revContent" value="상품이 설명한 것과 같아요">
-				 <label for="termCheck">상품이 설명한 것과 같아요</label><br>
+				 상품이 설명한 것과 같아요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox" name="revContent" value="내가 있는 곳까지 와주셨어요">
-				 <label for="termCheck">내가 있는 곳까지 와주셨어요</label><br>
+				 내가 있는 곳까지 와주셨어요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox"name="revContent"  value="약속시간을 잘지켜요">
-				 <label for="termCheck"> 약속시간을 잘지켜요</label><br>
+				 약속시간을 잘지켜요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox"name="revContent" value="친절하고 매너가 좋아요">
-				 <label for="termCheck">친절하고 매너가 좋아요</label><br>
+				 친절하고 매너가 좋아요</label><br>
+				 <label for="termCheck">
 				 <input type="checkbox"name="revContent" value="좋은 상품을 저렴하게 팔아요">
-				 <label for="termCheck">좋은 상품을 저렴하게 팔아요</label><br>
+				좋은 상품을 저렴하게 팔아요</label><br>
 				 </div></div>
 			<br> <br>
 			
 			<div style="text-align: center;">
-				<button type="submit" value="등록" class="btn"
-					style="text-align: center;">등록</button>
-				<button type="button" class="modal-close"
-					onclick="javascript:window.close()" style="text-align: center;">취소</button>
+				<button type="submit" value="등록" class="submit-btn" 
+				style="text-align: center;"> 등록</button> 
+				<button type="button" class="modal-close" 
+				onclick="javascript:window.close()" style="text-align: center;">취소</button>
 			</div>
 		</form>
-	</div>
-</div>
-
 
 
 
@@ -114,11 +150,12 @@
 	src="${pageContext.request.contextPath }/resources/js/jquery-3.6.3.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function() {
-	$('#insertReview').submit(function() {
-		window.close();
+$(document).ready(function() { 
+	$('#insertReview').submit(function() {// id="insertReview"가 submit되면
 		
-// 		alert('메세지');
+// 		window.close();
+		
+	alert('등록이 완료 되었습니다');
 		  });
 	
 	
