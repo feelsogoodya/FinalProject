@@ -23,6 +23,7 @@ public class BuyListDAOImpl implements BuyListDAO {
 		
 		return sqlSession.selectList(namespace + ".getBuyList", dto);
 	}
+	
 	@Override
 	public int getBuyCount() {
 		return sqlSession.selectOne(namespace + ".getBuyCount");

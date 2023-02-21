@@ -55,7 +55,6 @@ font-size: 50px;
     ${dto.prodName}</a></td>
 	<td>${dto.prodPrice} 원</td>
 	<td><input type="button" value="거래후기 작성" class="goreview"onclick="openPop()"> </td>
-            <input type="hidden" name="buymemId" value="${sessionScope.memberId}">
            </c:forEach>
         </tbody>
     </table>
@@ -63,15 +62,15 @@ font-size: 50px;
 
 
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
-<a href="${pageContext.request.contextPath }/list/selllist?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">[10페이지 이전] </a>
+<a href="${pageContext.request.contextPath }/list/buylist?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">[10페이지 이전] </a>
 </c:if>
  
 <c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-<a href="${pageContext.request.contextPath }/list/selllist?pageNum=${i}">${i}</a> 
+<a href="${pageContext.request.contextPath }/list/buylist?pageNum=${i}">${i}</a> 
 </c:forEach>
 
 <c:if test="${pageDTO.endPage < pageDTO.pageCount}">
-<a href="${pageContext.request.contextPath }/list/selllist?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">[10페이지 다음] </a>
+<a href="${pageContext.request.contextPath }/list/buylist?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">[10페이지 다음] </a>
 </c:if>
 
 

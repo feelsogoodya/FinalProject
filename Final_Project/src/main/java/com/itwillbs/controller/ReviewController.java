@@ -35,8 +35,11 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/review/insertReview", method = RequestMethod.POST)
 	public String insertReview(ReviewDTO reviewDTO, HttpSession session, MemberDTO memberDTO ) {
-		System.out.println("review 시작!!!!!!!!!!!!");
-
+		System.out.println("컨트롤러review 시작!!!!!!!!!!!!");
+		System.out.println("컨트롤러 reviewDTO: "+ reviewDTO.getRevScore());
+		System.out.println("컨트롤러 reviewDTO: "+ reviewDTO.getRevContent().split(",").length);
+		reviewDTO.setRevScore(reviewDTO.getRevContent().split(",").length);
+		
 		
 		reviewService.insertReview(reviewDTO);
 //		System.out.println("가져온 ID: "+reviewer);

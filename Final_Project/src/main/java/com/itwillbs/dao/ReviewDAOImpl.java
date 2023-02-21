@@ -16,6 +16,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 	
 	@Override
 	public void insertReview(ReviewDTO reviewDTO) {
+		System.out.println("DAOIMPL");
+		System.out.println(reviewDTO.getRevScore());
+		System.out.println(reviewDTO.getRevContent());
 		sqlSession.insert(namespace+".insertReview", reviewDTO);
 		
 	}

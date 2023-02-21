@@ -12,7 +12,21 @@ public class PageDTO {
 	private int startPage;
 	private int endPage;
 	private int pageCount;
+	private String buymemId;
+	private String sellmemId;
 	
+	public String getBuymemId() {
+		return buymemId;
+	}
+	public void setBuymemId(String buymemId) {
+		this.buymemId = buymemId;
+	}
+	public String getSellmemId() {
+		return sellmemId;
+	}
+	public void setSellmemId(String sellmemId) {
+		this.sellmemId = sellmemId;
+	}
 	public int getPageSize() {
 		return pageSize;
 	}

@@ -18,6 +18,7 @@ public class BuyListServiceImpl implements BuyListService{
 
 	@Override
 	public List<BuyListDTO> getbuyList(PageDTO dto) {
+		
 		// startRow 구하기
 		int startRow=(dto.getCurrentPage()-1)*dto.getPageSize()+1;
 		// endRow 구하기

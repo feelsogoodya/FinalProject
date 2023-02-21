@@ -23,19 +23,22 @@
 <body bgcolor="#C8C8FF">
 
 <%
-  String[] checkboxValues = request.getParameterValues("revContent");
-  int score = 0;
-  String revContent = "";
+//   String[] checkboxValues = request.getParameterValues("revContent");
+//   int revScore = 0;
+//   String revContent = "";
 
-  if (checkboxValues != null) { 
-    for (int i = 0; i < checkboxValues.length; i++) {
-   
-      score += Integer.parseInt(checkboxValues[i]);
-      revContent +=   checkboxValues[i]+ "," ;
-    }
-    revContent = revContent.substring(0, revContent.length()-1); // 마지막 쉼표 제거
-  }
-  
+//   if (checkboxValues != null) { 
+//     for (int i = 0; i < checkboxValues.length; i++) {
+// //     	 System.out.print("checkboxValues.length  : "+checkboxValues.length);
+
+// //       revScore +=1;
+//       revContent +=   checkboxValues[i]+ "," ;
+//     }
+//     revContent = revContent.substring(0, revContent.length()-1); // 마지막 쉼표 제거
+//  	revScore = checkboxValues.length-1;
+//   }
+//   System.out.print("revContent: "+revContent);
+//   System.out.print("score: "+revScore);
   %>
 
 
@@ -48,12 +51,11 @@
 
 				<input type="hidden" name="reviewee" value="${sessionScope.memberId}" id="reviewee">
 				<input type="hidden" name="reviewer" value="${sessionScope.memberId}" id="reviewer">
-				<input type = "hidden" name = "revScore" value="<%=score%>" id="revScore">
-				<input type="hidden" name = "revContent" value = "<%= revContent%>" id="revContent">
+
 				<div class="modal-title"></div>
 
 				<div class="manner-rating"></div>
-
+				
 				<fieldset style="display: flex; justify-content: center; border-color: white;">
 					<div class="img_style">
 						<img src="${pageContext.request.contextPath }/resources/img/review/bad.png"
@@ -163,19 +165,21 @@ $(document).ready(function() {
 		        url: '${pageContext.request.contextPath }/review/insertReview', // 서버 URL
 		        data: formData, // 전송할 데이터
 		        success: function(response) {
+		        	alert('성공');
 		          // 성공시 처리할 코드
 		          window.close();
 		        },
 		        error: function(xhr, status, error) {
 		          // 실패시 처리할 코드
+		          alert('등록실패');
 		        }
 		 
 	 });
 	
- $('#insertReview').submit(function() {// id="insertReview"가 submit되면
-		window.close();
-	alert('등록이 완료 되었습니다');
-		  });
+//  $('#insertReview').submit(function() {// id="insertReview"가 submit되면
+// 		window.close();
+// 	alert('등록이 완료 되었습니다');
+// 		  });
 	
 	
 		});
