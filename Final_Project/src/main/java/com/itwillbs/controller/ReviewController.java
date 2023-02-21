@@ -43,7 +43,7 @@ public class ReviewController {
 
 		session.setAttribute("reviewer", memberDTO.getMemberId());
 		// 기본 이동방식 : 주소변경 없이 이동
-		return "redirect:/list/buylist";
+		return null;
 	}
 		
 		

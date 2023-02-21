@@ -7,7 +7,7 @@
 
 	<select id="getSellList"
 		resultType="com.itwillbs.domain.SellListDTO">
-		select * from selllist where sellmem_id= 'aa'
+		select * from selllist where sellmem_id= #{sellmemId}
 		order by sell_date desc
 	</select>
 

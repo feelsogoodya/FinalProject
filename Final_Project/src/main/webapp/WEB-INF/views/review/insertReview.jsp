@@ -5,6 +5,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <style>
+
 .review{
 	height: 80;
 	width: 80;
@@ -17,6 +18,10 @@
 }
 </style>
 
+
+
+<body bgcolor="#C8C8FF">
+
 <%
   String[] checkboxValues = request.getParameterValues("revContent");
   int score = 0;
@@ -26,20 +31,18 @@
     for (int i = 0; i < checkboxValues.length; i++) {
    
       score += Integer.parseInt(checkboxValues[i]);
-      revContent +=  "," + checkboxValues[i];
+      revContent +=   checkboxValues[i]+ "," ;
     }
     revContent = revContent.substring(0, revContent.length()-1); // 마지막 쉼표 제거
-
   }
   
   %>
 
 
-
 		<div class="modal-title">${sessionScope.memberId}님과의거래후기를남겨주세요!</div>
 		<br>
 		<form action="${pageContext.request.contextPath }/review/insertReview"  
-		id="insertReview" method="post" onsubmit = "window.close()">
+		id="insertReview" method="post">
 			<div class="modal-content">
 			
 
@@ -139,7 +142,7 @@
 				onclick="javascript:window.close()" style="text-align: center;">취소</button>
 			</div>
 		</form>
-
+</body>
 
 
 
@@ -151,16 +154,34 @@
 <script type="text/javascript">
 
 $(document).ready(function() { 
-	$('#insertReview').submit(function() {// id="insertReview"가 submit되면
-		
-// 		window.close();
-		
+	 $('form').submit(function(event) {
+		 event.preventDefault(); // 기본 동작 방지
+		    var formData = $(this).serialize(); // form 데이터 가져오기
+		   
+		    $.ajax({
+		        type: 'POST', // HTTP 요청 방식
+		        url: '${pageContext.request.contextPath }/review/insertReview', // 서버 URL
+		        data: formData, // 전송할 데이터
+		        success: function(response) {
+		          // 성공시 처리할 코드
+		          window.close();
+		        },
+		        error: function(xhr, status, error) {
+		          // 실패시 처리할 코드
+		        }
+		 
+	 });
+	
+ $('#insertReview').submit(function() {// id="insertReview"가 submit되면
+		window.close();
 	alert('등록이 완료 되었습니다');
 		  });
 	
 	
-	$('.review').click(reviewClick)	
-});
+		});
+	 $('.review').click(reviewClick)	
+	 
+	});
 
 
 
