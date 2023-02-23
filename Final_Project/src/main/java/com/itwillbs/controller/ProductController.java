@@ -73,7 +73,7 @@ public class ProductController {
 		productService.insertProduct(productDTO);
 //		System.out.println("가져온 ID: "+reviewer);
 
-		session.setAttribute("reviewer", memberDTO.getMemberId());
+		session.setAttribute("reviewer", memberDTO.getMemId());
 		// 기본 이동방식 : 주소변경 없이 이동
 		return "redirect:/list/buylist";
 	}	

@@ -7,12 +7,12 @@
 
 	<select id="getSellList"
 		resultType="com.itwillbs.domain.SellListDTO">
-		select * from selllist where sellmem_id= #{sellmemId}
-		order by sell_date desc
+		select * from product where product_seller= #{sessionScope.memId}
+		order by product_date desc
 	</select>
 
   <select id="getSellCount" resultType="java.lang.Integer">
-  	select count(*) from selllist
+  	select count(*) from product
   </select>
 
 </mapper>

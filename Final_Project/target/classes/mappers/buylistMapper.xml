@@ -12,7 +12,7 @@
 
 	<select id="getBuyList"
 		resultType="com.itwillbs.domain.BuyListDTO">
-		select * from buylist where buymem_id= #{buymemId}
+		select * from buylist where buymem_id= #{buymemNn}
 		order by buy_date desc
 	</select>
 

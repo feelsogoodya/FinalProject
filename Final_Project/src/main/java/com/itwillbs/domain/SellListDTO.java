@@ -3,60 +3,65 @@ package com.itwillbs.domain;
 
 public class SellListDTO {
 
-	private int sellNum;
-	private String sellmemId;
-	private String prodName;
-	private String prodPic;
-	private int prodPrice;
-	private String prodStatus;
-	private String sellDate;
+	private int productNum;
+	private String productSeller;
+	private String productTitle;
+	private String productPic;
+	private int productPrice;
+	private String productStatus;
 	
 	
 	
-	public int getSellNum() {
-		return sellNum;
+	public String getProductStatus() {
+		return productStatus;
 	}
-	public void setSellNum(int sellNum) {
-		this.sellNum = sellNum;
+	public void setProductStatus(String productStatus) {
+		this.productStatus = productStatus;
 	}
-	public String getSellmemId() {
-		return sellmemId;
+	private String productDate;
+	
+	
+	
+	public int getProductNum() {
+		return productNum;
 	}
-	public void setSellmemId(String sellmemId) {
-		this.sellmemId = sellmemId;
+	public void setProductNum(int productNum) {
+		this.productNum = productNum;
 	}
-	public String getProdName() {
-		return prodName;
+	public String getProductSeller() {
+		return productSeller;
 	}
-	public void setProdName(String prodName) {
-		this.prodName = prodName;
+	public void setProductSeller(String productSeller) {
+		this.productSeller = productSeller;
 	}
-	public String getProdPic() {
-		return prodPic;
+	public String getProductTitle() {
+		return productTitle;
 	}
-	public void setProdPic(String prodPic) {
-		this.prodPic = prodPic;
+	public void setProductTitle(String productTitle) {
+		this.productTitle = productTitle;
 	}
-	public int getProdPrice() {
-		return prodPrice;
+	public String getProductPic() {
+		return productPic;
 	}
-	public void setProdPrice(int prodPrice) {
-		this.prodPrice = prodPrice;
+	public void setProductPic(String prodcutPic) {
+		this.productPic = prodcutPic;
 	}
-	public String getProdStatus() {
-		return prodStatus;
+	public int getProductPrice() {
+		return productPrice;
 	}
-	public void setProdStatus(String prodStatus) {
-		this.prodStatus = prodStatus;
+	public void setProductPrice(int productPrice) {
+		this.productPrice = productPrice;
 	}
-	public String getSellDate() {
-		return sellDate;
+
+	public String getProductDate() {
+		return productDate;
 	}
-	public void setSellDate(String sellDate) {
-		this.sellDate = sellDate;
+	public void setProductDate(String productDate) {
+		this.productDate = productDate;
 	}
 	
 	
+
 	
 	
 	

@@ -4,13 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.SellListDTO;
 import com.itwillbs.service.SellListService;
@@ -24,9 +25,9 @@ public class SellListController {
 
 
 
-	@RequestMapping(value = "/list/selllist", 
-			method = RequestMethod.GET)
-	public String list(Model model, HttpServletRequest request) {
+	@RequestMapping(value = "/list/selllist", method = RequestMethod.GET)
+	public String list(Model model, HttpServletRequest request, HttpSession session, MemberDTO memberDTO) {
+		System.out.println("sellList시작");
 		// http://localhost:8080/myweb/board/list
 		// http://localhost:8080/myweb/board/list?pageNum=2
 		// 한 화면에 보여줄 글 개수 설정 (10개 설정)
@@ -34,7 +35,7 @@ public class SellListController {
 		// 현 페이지 번호 파라미터값 가져오기
 		String pageNum=request.getParameter("pageNum");
 		// 페이지 번호가 없으면 => "1" 설정
-		if(pageNum == "0"){
+		if(pageNum == null){
 		 	pageNum="1";
 		}
 		// pageNum => 정수형 currentPage
@@ -45,7 +46,7 @@ public class SellListController {
 		pageDTO.setPageSize(pageSize);
 		pageDTO.setPageNum(pageNum);
 		pageDTO.setCurrentPage(currentPage);
-		
+		pageDTO.setSellmemNn((String)session.getAttribute("memId"));
 		// 디비작업 메서드 호출
 		// List<BoardDTO> 리턴할형 getBoardList(PageDTO dto) 메서드 정의
 		// List<BoardDTO> boardList =dao.getBoardList(dto);
@@ -70,8 +71,8 @@ public class SellListController {
 		
 		// model 담아서 이동
 		model.addAttribute("sellList", sellList);
-		model.addAttribute("pageDto",pageDTO);
-		
+		model.addAttribute("pageDTO",pageDTO);
+		session.setAttribute("sellmemNname", memberDTO.getMemNname());
 		// 기본 이동방식 : 주소변경 없이 이동 
 		return "list/selllist";
 	}//

@@ -29,12 +29,12 @@ font-size: 50px;
 
 
 <body>
-<div class="buy-title">${sessionScope.memberId}님의 구매내역</div>
+<div class="buy-title">${memId}님의 구매내역</div>
 
 <div class="main" style=" padding-left: 100px;">
-<input type="hidden" name="buymemId" value="${sessionScope.memberId}">
+<input type="hidden" name="buymemId" value="${sessionScope.memId}">
 <a href="${pageContext.request.contextPath }/">메인페이지</a><br>
-<a href="${pageContext.request.contextPath }/sell/판매페이지">판매하기</a><br>
+<a href="${pageContext.request.contextPath }/sell/판매페이지">구매하기</a><br>
 <%-- <div>나의 매너온도: ${reviewDTO.revTotalscore}</div> --%>
 <!-- 								${sessionScope.revTotalscore} -->
 </div>
@@ -42,11 +42,11 @@ font-size: 50px;
   <table  class="rwd-table">
          <tbody>
            <tr class="color_menu">
-			<tr><td>구매일</td>
-			<td>이미지</td>
-			<td>상품명</td>
-			<td>금액</td>
-			<td></td>
+			<th>구매일</th>
+			<th>이미지</th>
+			<th>상품명</th>
+			<th>금액</th>
+			<th></th>
            </tr>
     <c:forEach var="dto" items="${buyList}">
  	<td>${dto.buyDate}</td>
@@ -78,13 +78,6 @@ font-size: 50px;
 
 
 
-</body>
-</html>
-
-
-
-
-
 
 
 
@@ -100,15 +93,11 @@ function  openPop() {
 
 </script>
 
-
-
-
-
-
-
-
 </body>
 </html>
+
+
+
 
 
 

@@ -12,20 +12,20 @@ public class PageDTO {
 	private int startPage;
 	private int endPage;
 	private int pageCount;
-	private String buymemId;
-	private String sellmemId;
+	private String buymemNn;
+	private String sellmemNn;
 	
-	public String getBuymemId() {
-		return buymemId;
+	public String getBuymemNn() {
+		return buymemNn;
 	}
-	public void setBuymemId(String buymemId) {
-		this.buymemId = buymemId;
+	public void setBuymemNn(String buymemNn) {
+		this.buymemNn = buymemNn;
 	}
-	public String getSellmemId() {
-		return sellmemId;
+	public String getSellmemNn() {
+		return sellmemNn;
 	}
-	public void setSellmemId(String sellmemId) {
-		this.sellmemId = sellmemId;
+	public void setSellmemNn(String sellmemNn) {
+		this.sellmemNn = sellmemNn;
 	}
 	public int getPageSize() {
 		return pageSize;
