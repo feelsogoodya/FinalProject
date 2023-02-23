@@ -54,7 +54,7 @@ html, body {
     padding-left: 6px;
 }
 
-/* »çÀÌµå ¸Þ´º */
+/* ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ´ï¿½ */
 input[type="search"] {
     width: 180px;
     margin: 0 auto;
@@ -189,11 +189,11 @@ ul {
     color: white;
 }
 
-/*¿©±â±îÁö°¡ ¸Þ´º¹ÙÀÓ*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
 
 
-/*¿©±â¼­ºÎÅÍ Å×ÀÌºíÀÓ*/
+/*ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½*/
 tbody {
 	width: 800px;
 }
@@ -278,8 +278,9 @@ tbody {
 
 @media screen and (min-width: 600px) {
     .rwd-table tr:hover:not(:first-child, .color_menu) {
-        background-color: rgba(131, 244, 180, 0.3);
-        /*background-color: #83F4B4;°ú µ¿ÀÏ opacity*/
+        background-color: #CE93D8;
+        /*rgba(131, 244, 180, 0.3);*/
+        /*background-color: #83F4B4;ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ opacity*/
     }
     .rwd-table td:before {
         display: none;
@@ -309,7 +310,7 @@ tbody {
 }
 
 
-/* ÆäÀÌÁö ³» »ó´Ü ¸Þ´º */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ */
 h5{
 	margin: 70px;
 	margin-bottom: 0;
@@ -327,7 +328,7 @@ h5{
 }
 
 
-/* ÇÁ·ÎÁ§Æ® ÆäÀÌÁö ³» ÅÇ¸Þ´º ±¸Çö */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç¸Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 *{
   margin:0; padding:0;
   font-size:15px; 
@@ -374,12 +375,12 @@ ul{list-style:none;}
   display:block;
 }
 
-/* °øÁö»çÇ× */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .notice_btn {
 	margin-top: 0px;
     margin-left: 1410px;
 }
-/* ±Û¾²±âForm*/
+/* ï¿½Û¾ï¿½ï¿½ï¿½Form*/
 .write_textarea {
 	margin-top: 180px;
 	margin-left: 50px;
